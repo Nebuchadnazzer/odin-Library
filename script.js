@@ -1,16 +1,26 @@
 const myLibrary = [];
+const newBookButton = document.querySelector("#new-book-button");
+const cancelButton = document.querySelector("#cancel-button")
+const dialog = document.querySelector("#form-dialog");
 
-function Book(title, author, pages, read) {
+newBookButton.addEventListener("click", function() {
+    dialog.showModal();
+});
+
+cancelButton.addEventListener("click", function() {
+    dialog.close();
+});
+
+function Book(title, author, pages, read){
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
 }
 
-function addBookToLibrary () {
-    let title = document.querySelector("#title").value;
-    let author = document.querySelector("#author").value;
-    let pages = document.querySelector("#pages").value;
-    let read = document.querySelector("#read").checked;
-    let newBook = Book(title, author, pages, read)
-}
+const newBookForm = document.querySelector("#new-book-form");
+
+// function addBookToLibrary(title, author, pages, read){
+//     const newBook = new Book(title, author, pages, read);
+//     myLibrary.push(newBook);
+// }

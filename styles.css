@@ -80,3 +80,9 @@ input[type="text"], input[type="checkbox"] {
     flex-wrap: wrap;
     justify-content: center;
 }
+
+#book-card {
+    border-radius: 1rem;
+    border-color: #444;
+    border-style: solid;
+}

@@ -2,7 +2,6 @@ const myLibrary = [];
 const newBookButton = document.querySelector("#new-book-button");
 const cancelButton = document.querySelector("#cancel-button")
 const dialog = document.querySelector("#form-dialog");
-// const addNewBookButton = document.querySelector("#add-book");
 
 newBookButton.addEventListener("click", function() {
     dialog.showModal();
@@ -12,15 +11,20 @@ cancelButton.addEventListener("click", function() {
     dialog.close();
 });
 
-// addNewBookButton.addEventListener("click", function() {
-//     addBookToLibrary();
-// });
-
-function Book(title, author, pages, read) {
+function Book (title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
+}
+
+Book.prototype.toggleRead = function() {
+    this.read = !this.read;
+}
+
+function toggleRead (index) {
+    myLibrary[index].toggleRead();
+    render();
 }
 
 function addBookToLibrary () {
@@ -52,7 +56,10 @@ function render () {
         </div>
         <div class="card-body">
             <p>${book.pages} pages </p>
-            <p class="read-status">${book.read ? "Read" : "Not Read Yet"}</p>
+            <div class="read-toggle">
+                <label for"read-checkbox-${i}">Read:</label> 
+                <input type="checkbox" id="read-checkbox-${i}" class="read-checkbox" ${book.read ? "checked" : ""} onclick="toggleRead(${i})">
+            </div>
             <button class="remove-button" onclick="removeBook(${i})">Remove</button>
         <div>`;
         libraryElement.appendChild(bookElement);

@@ -72,7 +72,7 @@ input[type="text"], input[type="checkbox"] {
     font-size: 1em;
 }
 
-#library-container {
+#library-shelf {
     margin-top: 20px;
     width: 90%;
     max-width: 1200px;
@@ -81,8 +81,16 @@ input[type="text"], input[type="checkbox"] {
     justify-content: center;
 }
 
-#book-card {
-    border-radius: 1rem;
-    border-color: #444;
-    border-style: solid;
+.book-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    width: calc(100% - 40px);
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
